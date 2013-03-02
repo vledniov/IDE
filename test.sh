@@ -28,7 +28,9 @@ then
     echo "C compile failed"
     SUBJECT="C compile failed"
     EMAIL="vlad.ledniov@gmail.com"
-    EMAILMESSAGE="Dude, you know, the C compile failed. You did something wrong, check it out."
+    EMAILMESSAGE="/tmp/emailmessage.txt"
+    echo "Something went wrong" > $EMAILMESSAGE
+    echo "Dude, the C compile failed, something went extremely wrong, you should check it out!" >> $EMAILMESSAGE
     /bin/mail -s "$SUBJECT" "$EMAIL" < $EMAILMESSAGE
 else
   ./hola

@@ -26,6 +26,10 @@ gcc HelloWorldPrograms/c/hello.c -o hola
 if [ $? -ne 0 ]
 then
     echo "C compile failed"
+    SUBJECT="C compile failed"
+    EMAIL="vlad.ledniov@gmail.com"
+    EMAILMESSAGE="Dude, you know, the C compile failed. You did something wrong, check it out."
+    /bin/mail -s "$SUBJECT" "$EMAIL" < $EMAILMESSAGE
 else
   ./hola
   rm hola

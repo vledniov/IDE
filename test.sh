@@ -6,6 +6,7 @@ then
   echo "Python compile failed"
 else
   $now=date
+  echo $now
   echo "$now Python compilation succeeded" >> log.log
   git aa && git cm -m "Success message"
 fi

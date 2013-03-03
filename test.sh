@@ -5,7 +5,7 @@ if [ $? -ne 0 ]
 then
   echo "Python compile failed"
 else
-  $now=date
+  now=date
   echo $now
   echo "$now Python compilation succeeded" >> log.log
   git aa && git cm -m "Success message"
@@ -17,7 +17,7 @@ if [ $? -ne 0 ]
 then
   echo "Ruby compile failed"
 else
-  $now=date
+  now=date
   echo "$now Ruby compilation succeeded" >> log.log
   git aa && git cm -m "Success message"
 fi
@@ -36,7 +36,7 @@ then
 else
   ./hola
   rm hola
-  $now=date
+  now=date
   echo "$now C compilation succeeded" >> log.log
   git aa && git cm -m "Success message"
 fi
@@ -49,7 +49,7 @@ then
 else
   ./hola
   rm hola
-  $now=date
+  now=date
   echo "$now C++ compilation succeeded" >> log.log
   git aa && git cm -m "Success message"
 fi

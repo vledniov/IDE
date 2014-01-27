@@ -1,67 +1,58 @@
+### Ministerul educației Republicii Moldova
+### Universitatea Tehnică a Moldovei
+### Facultatea Calculatoare, Informatică și Microelectronică
+### Filiera Anglofonă
 
-IDE Labs
-=========
-MIDPS - Medii Interactive de Dezvoltare a Produselor Soft
+# Raport
+## Lucrare de laborator nr. 5
+## la Proiectarea Sistemelor Informaționale
 
-Virtosu Sava
+##### A efectuat:
+st. gr. FAF-101 - Ledniov Vladislav
 
-email: sava.virtosu@gmail.com
+##### A verificat:
+lector superior - A. Railean
+lector superior - D. Brăilean
 
-Content
-------------------------------------------------------
-### [Lab 1](https://github.com/TUM-FAF/IDE/blob/master/MIDPS_LAB_1.md)
-Setting server environment (via SSH)
 
-Version Control Systems (one of):
-  - git
-  - mercurial
-  - svn
+Contents
+========
 
-### [Lab 2](https://github.com/TUM-FAF/IDE/blob/master/MIDPS_LAB_2.md)
-Command Line Interfaces (CLI) (one of):
-  - vi
-  - vim
-  - emacs
-  - nano
+This is the Laboratory 5 for PSI course
 
-Scripting (using one of the following languages):
-  - Bash
-  - Python
-  - Perl
-  - C
+Installation
+------------
 
-### [Lab 3](https://github.com/TUM-FAF/IDE/blob/master/MIDPS_LAB_3.md)
-GUI Programing (one of):
-  - Visual Studio
-  - QTCreator
-  - Code::Blocks
+* You need Postgres for the database and Redis for caching and background jobs
 
-### [Lab 4](https://github.com/TUM-FAF/IDE/blob/master/MIDPS_LAB_4.md)
-Mobile application development (one of):
-  - Eclipse (Java, Android)
-  - NetBeans (Java, Android)
-  - ItelijIdea (Java, Android)
-  - XCode (Objective-C, iOS)
+Setting it up
+-------------
 
-### [Lab 5](https://github.com/TUM-FAF/IDE/blob/master/MIDPS_LAB_5.md)
-Web development IDEs/text editors (one of):
-  - Sublime Text 2
-  - Rubymind
-  - PyCharm
-  - Komodo
-  - Coda
-  - Dreamweaver
-  - phpStorm
-  
-Web development languages (one of):
- - python (Django)
- - ruby (Ruby on Rail)
+1. copy the `application-example.yml` to `application.yml` and edit it to conform to your system
+2. copy the `database-example.yml` to `database.yml` and edit it to fit with your database settings
+3. run `bundle install` to set up your gems
+4. run `rake db:migrate`
+5. if you want to just click around, run `rake db:seed` and then you can sign in with `test@example.com` having the password `123456`
 
-### [Lab 6](https://github.com/TUM-FAF/IDE/blob/master/MIDPS_LAB_6.md)
-Game Development OR Browser Extension (one of):
-  - Unity 3D (Javascript, Python, C#)
-  - compilr (JavaScript)
-  - coderun (JavaScript)
-  - shiftedit (JavaScript)
-  - c9.io (JavaScript)
-  - ideone (JavaScript) 
+Running the app
+---------------
+
+1. launch `sidekiq` in the same folder
+2. `rails s`
+3. Profit!
+
+Setting up the app for deployment
+---------------------------------
+
+1. `application.yml` contains several constants that are important for syncing with the external API service. Please edit them.
+2. If you would like to do it locally, go into the Rails Console and type `rake ext:seed_data`
+
+Testing
+-------
+
+1. Run the suite with `rake spec`
+2. If it tells you that a route has not been properly stubbed, you either need to:
+  * stub it by putting the result in the `/spec/fixtures/` directory
+  * fix it, since it might be a wrong route
+3. Note that `rake spec` runs everything but the *feature* specs. In order to run everything, use `ALL=1 rspec spec/`
+
